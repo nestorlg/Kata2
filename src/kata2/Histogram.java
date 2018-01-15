@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Histogram<T> {
-    private final Integer[] data;
+    private final T[] data;
 
-    public Histogram(Integer[] data) {
+    public Histogram(T[] data) {
         this.data = data;
     }
 
-    public Integer[] getData() {
+    public T[] getData() {
         return data;
     }
     
     public Map<T,Integer> getHistogram () {
         Map<T,Integer> histogram = new HashMap();
-        for (Integer value : data) {
+        for (T value : data) {
             histogram.put((T) value, histogram.containsKey(value) ? histogram.get(value) + 1 : 1);
         }
         return histogram;
